@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BackendEnterpriseemsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BackendEnterpriseemsApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(BackendEnterpriseemsApplication.class, args);
+    }
 }
