@@ -1,20 +1,19 @@
 package com.eems.security;
 
-import io.jsonwebtoken.Claims;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import java.io.IOException;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    
+
     private final JwtUtil jwtUtil;
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil) {
@@ -40,5 +39,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         Claims claims = jwtUtil.extractClaims(token);
         request.setAttribute("claims", claims);
         chain.doFilter(request, response);
+
+       /* Claims claims = jwtUtil.extractClaims(token);
+
+        // ✅ Set authentication in the SecurityContextHolder after extracting the claims
+        String username = jwtUtil.getUsername(token);
+        if (username != null) {
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                    username, null, null); // You can add authorities here if needed
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authentication); // ✅
+
+        }
+
+        chain.doFilter(request, response);*/
     }
-}
+    }

@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendEnterpriseemsApplication {
+public class ZidioEnterpriseExpenseManagementSystemBackend {
 
     public static void main(String[] args) {
-        SpringApplication.run(BackendEnterpriseemsApplication.class, args);
+        SpringApplication.run(ZidioEnterpriseExpenseManagementSystemBackend.class, args);
     }
 }

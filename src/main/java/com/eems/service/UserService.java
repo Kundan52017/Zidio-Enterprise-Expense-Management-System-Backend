@@ -1,13 +1,13 @@
 package com.eems.service;
 
-import com.eems.model.User;
-import com.eems.model.Role;
-import com.eems.repository.UserRepository;
-import com.eems.security.JwtUtil;
+import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
+
+import com.eems.model.User;
+import com.eems.repository.UserRepository;
+import com.eems.security.JwtUtil;
 
 @Service
 public class UserService {
